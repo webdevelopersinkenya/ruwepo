@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Directors · Riruta United Women Empowerment Programme (RUWEPO)</title>
+  <!-- Google Fonts (Cabin & Montserrat) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Cabin', sans-serif;
+      background: #fff;
+      color: #2a2a2a;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ----- header / nav ----- */
+    .birdseye-header {
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+    }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo img {
+      max-height: 60px;
+      width: auto;
+    }
+    .desktop-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .desktop-nav ul li a {
+      color: #1f2a1e;
+      transition: color 0.2s;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .desktop-nav ul li a:hover,
+    .desktop-nav ul li.active a {
+      color: #487429;
+      border-bottom-color: #487429;
+    }
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #1f2a1e;
+    }
+    .nav-mobile {
+      display: none;
+      background: #f9faf8;
+      padding: 16px 24px 24px;
+      border-top: 1px solid #e0e6db;
+    }
+    .nav-mobile ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .nav-mobile ul li a {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1f2a1e;
+      padding: 6px 0;
+      border-bottom: 1px solid #e0e6db;
+    }
+    .nav-mobile ul li a:hover {
+      color: #487429;
+    }
+    .nav-mobile.open {
+      display: block;
+    }
+
+    /* ----- banner (directors) ----- */
+    .banner-wrap {
+      background: linear-gradient(135deg, #dce8d4 0%, #b8ceab 100%);
+      padding: 60px 0 70px;
+      text-align: center;
+      background-image: url('images/ruwepo.jpg');
+      background-size: cover;
+      background-position: center 50%;
+      background-blend-mode: overlay;
+      background-color: rgba(30, 50, 20, 0.45);
+      color: #fff;
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+    }
+    .banner-wrap .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .banner-wrap h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .banner-wrap .subhead {
+      font-size: 1.2rem;
+      font-weight: 400;
+      background: rgba(0,0,0,0.25);
+      padding: 6px 24px;
+      border-radius: 40px;
+      display: inline-block;
+    }
+
+    /* ----- main content ----- */
+    .section {
+      padding: 60px 0;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 12px;
+      color: #1f2a1e;
+    }
+    .section-sub {
+      text-align: center;
+      font-size: 1.1rem;
+      max-width: 780px;
+      margin: 0 auto 50px;
+      color: #3d4d3a;
+    }
+
+    /* director profile layout */
+    .director-profile {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 70px;
+    }
+    .director-profile:nth-child(even) .director-photo {
+      order: 2;
+    }
+    .director-profile:nth-child(even) .director-info {
+      order: 1;
+    }
+    .director-photo {
+      text-align: center;
+    }
+    .director-photo img {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+      margin: 0 auto;
+      border: 6px solid #eaf3e4;
+    }
+    .director-info h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #1f2a1e;
+      margin-bottom: 6px;
+    }
+    .director-info .director-role {
+      display: inline-block;
+      background: #eaf3e4;
+      color: #487429;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 16px;
+      border-radius: 40px;
+      margin-bottom: 20px;
+    }
+
+    /* ----- BIOGRAPHY CONTAINER WITH SEE MORE ----- */
+    .bio-container {
+      position: relative;
+      margin-bottom: 16px;
+    }
+    .bio-content {
+      max-height: 180px; /* Show approximately 4-5 lines */
+      overflow: hidden;
+      position: relative;
+      transition: max-height 0.5s ease;
+    }
+    .bio-content::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, #fff);
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .bio-content.expanded {
+      max-height: 5000px; /* Large enough to show all content */
+    }
+    .bio-content.expanded::after {
+      opacity: 0;
+    }
+    .bio-content p {
+      font-size: 1rem;
+      color: #3d4d3a;
+      margin-bottom: 12px;
+    }
+    .bio-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .see-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: #487429;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: none;
+      cursor: pointer;
+      padding: 6px 0;
+      margin-top: 4px;
+      transition: color 0.2s;
+    }
+    .see-more-btn:hover {
+      color: #2a4a1e;
+    }
+    .see-more-btn i {
+      transition: transform 0.3s ease;
+      font-size: 0.75rem;
+    }
+    .see-more-btn.expanded i {
+      transform: rotate(180deg);
+    }
+
+    .director-info h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #487429;
+      margin: 24px 0 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .director-info ul {
+      list-style: none;
+      padding: 0;
+    }
+    .director-info ul li {
+      position: relative;
+      padding-left: 26px;
+      margin-bottom: 8px;
+      font-size: 0.98rem;
+      color: #3d4d3a;
+    }
+    .director-info ul li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: #508d24;
+      font-size: 0.85rem;
+    }
+
+    /* portfolio / skills badges */
+    .portfolio-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .portfolio-badges span {
+      background: #f6f9f4;
+      border: 1px solid #cbdcc2;
+      color: #2a4a1e;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 40px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .hr-divider {
+      width: 80px;
+      height: 3px;
+      background: #cbdcc2;
+      margin: 24px auto 40px;
+      border-radius: 4px;
+    }
+
+    /* ----- footer ----- */
+    .footer-wrap {
+      background: #1f2a1e;
+      color: #d3ddd0;
+      padding: 32px 0 24px;
+      text-align: center;
+    }
+    .footer-wrap .social-icons a {
+      color: #d3ddd0;
+      margin: 0 12px;
+      font-size: 1.6rem;
+      transition: color 0.2s;
+    }
+    .footer-wrap .social-icons a:hover {
+      color: #aacf97;
+    }
+    .footer-wrap .copy {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+    }
+    .footer-wrap .copy a {
+      color: #aacf97;
+    }
+    .footer-wrap .copy a:hover {
+      text-decoration: underline;
+    }
+
+    /* ----- responsive ----- */
+    @media (max-width: 992px) {
+      .director-profile {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 50px;
+      }
+      .director-profile:nth-child(even) .director-photo,
+      .director-profile:nth-child(even) .director-info {
+        order: unset;
+      }
+      .banner-wrap h1 { font-size: 2.4rem; }
+    }
+    @media (max-width: 768px) {
+      .desktop-nav { display: none; }
+      .hamburger { display: block; }
+      .banner-wrap h1 { font-size: 1.9rem; }
+      .section-title { font-size: 1.7rem; }
+      .director-info h2 { font-size: 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .banner-wrap { padding: 40px 0; }
+      .banner-wrap h1 { font-size: 1.6rem; }
+      .banner-wrap .subhead { font-size: 0.95rem; }
+      .director-photo img { max-width: 240px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="birdseye-header">
+    <div class="container nav-wrap">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo-removebg-preview.png" alt="Riruta United Women Empowerment Programme (RUWEPO) logo" style="max-height:60px;">
+        </a>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li class="active"><a href="directors.html">Our Directors</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li class="active"><a href="powerfulprojects.html">Powerful Projects</a></li>
+          <li><a href="getinvolved.html">Get Involved</a></li>
+          <li><a href="contactus.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" id="hamburgerToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+    <!-- mobile menu -->
+    <div class="nav-mobile" id="mobileMenu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="portfolio.html">Our Directors</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="projects.html">Powerful Projects</a></li>
+        <li><a href="getinvolved.html">Get Involved</a></li>
+        <li><a href="contactus.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== BANNER ===== -->
+  <section class="banner-wrap">
+    <div class="container">
+      <h1>Our Directors</h1>
+      <div class="subhead">Meet the leaders behind RUWEPO</div>
+    </div>
+  </section>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <h2 class="section-title">Leadership &amp; Vision</h2>
+        <p class="section-sub">
+          RUWEPO is guided by passionate leaders dedicated to empowering women and strengthening communities across Kenya. Meet our directors and explore their portfolios.
+        </p>
+        <div class="hr-divider"></div>
+
+        <!-- ===== DIRECTOR 1: JOHN BARAZA MAKOKHA ===== -->
+        <div class="director-profile">
+          <div class="director-photo">
+            <img src="images/part.jpg" alt="John Baraza Makokha portrait">
+          </div>
+          <div class="director-info">
+            <h2>John Baraza Makokha</h2>
+            <span class="director-role">Resource Mobilization and Project Compliance Leader &amp; Co-Founder</span>
+
+            <!-- BIOGRAPHY WITH SEE MORE -->
+            <div class="bio-container">
+              <div class="bio-content" id="bio-john">
+                <p>
+                  John Baraza Makokha is a devoted member of The Church of Jesus Christ of Latter-day Saints and currently serves as the Stake Patriarch of the Nairobi West Stake and as a Temple Sealer in the Nairobi Kenya Temple.
+                </p>
+                <p>
+                  He is a dedicated family man, educationist, community development expert, and servant leader. He is deeply committed to strengthening individuals, families, institutions, and communities through education, faith, service, and sustainable development.
+                </p>
+                <p>
+                  He graduated with a Bachelor of Education degree from the University of Nairobi, and a Master of Arts in Missions degree from Africa International University.
+                </p>
+                <p>
+                  He has served faithfully in various capacities within the Church in branch presidency, seminary and institute teacher, and Ward Sunday school president. In these sacred callings, he considers it a privilege to help members draw closer to Jesus Christ, strengthen their families, receive patriarchal blessings, and understand the eternal nature of covenants and family relationships.
+                </p>
+                <p>
+                  As an educationist, he has devoted much of his professional and personal life to promoting quality education and creating opportunities for learners to develop academically, morally, socially, and spiritually. He believes that education is a powerful instrument for transforming individuals and communities. His interest in education extends beyond the classroom to school development, mentorship, youth empowerment, leadership, and the creation of supportive learning environments.
+                </p>
+                <p>
+                  As a community development expert, he has participated in initiatives aimed at improving livelihoods and addressing community needs. His interests include education, water and sanitation, youth empowerment, agriculture, self-reliance, infrastructure development, and sustainable community projects. He believes in practical solutions that empower people to become self-reliant and contribute positively to the development of their communities.
+                </p>
+                <p>
+                  His approach to leadership is founded on service, integrity, accountability, compassion, and collaboration. He believes that meaningful leadership is not about position or recognition, but about lifting others, creating opportunities, solving problems, and leaving a positive legacy. He is particularly passionate about supporting young people and families as they navigate the challenges and opportunities of modern life.
+                </p>
+                <p>
+                  At the center of his life is his role as a family man. He values marriage, family unity, responsible parenting, love, mutual respect, and strong family relationships. He considers the family to be the foundation of society and strives to build a home characterized by faith, love, hard work, forgiveness, and service.
+                </p>
+                <p>
+                  Through his professional career, Church service, community involvement, and family responsibilities, he seeks to live a life of purpose and meaningful service. His guiding desire is to strengthen faith, educate minds, develop communities, build strong families, and bless the lives of others. He looks forward to continuing to serve God, his family, the Church, and the wider community with humility and dedication.
+                </p>
+              </div>
+              <button class="see-more-btn" onclick="toggleBio('bio-john', this)">
+                See More <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+
+            <h4>Portfolio &amp; Expertise</h4>
+            <ul>
+              <li>Strategic planning and organizational leadership</li>
+              <li>Education, mentorship &amp; youth empowerment</li>
+              <li>Community development &amp; self-reliance initiatives</li>
+              <li>Water, sanitation &amp; infrastructure development</li>
+              <li>Agriculture &amp; sustainable community projects</li>
+              <li>Partnership building and donor relations</li>
+            </ul>
+
+            <h4>Key Areas</h4>
+            <div class="portfolio-badges">
+              <span>Education</span>
+              <span>Community Empowerment</span>
+              <span>Leadership</span>
+              <span>Water &amp; Sanitation</span>
+              <span>Youth Empowerment</span>
+              <span>Agriculture</span>
+              <span>Self-Reliance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== DIRECTOR 2: ANNE KHADUDU BARAZA ===== -->
+        <div class="director-profile">
+          <div class="director-photo">
+            <img src="images/khadudu.png" alt="Anne Khadudu Baraza portrait">
+          </div>
+          <div class="director-info">
+            <h2>Anne Khadudu Baraza</h2>
+            <span class="director-role">Programs Director &amp; Co-Founder</span>
+
+            <!-- BIOGRAPHY WITH SEE MORE -->
+            <div class="bio-container">
+              <div class="bio-content" id="bio-anne">
+                <p>
+                  Anne Khadudu Baraza is a devoted member of The Church of Jesus Christ of Latter-day Saints, serving faithfully as a Sister Temple Worker and Seminary Teacher in the Nairobi West Stake, Kenya. She is a woman of faith, service, education, leadership, and compassion, with a strong commitment to strengthening individuals, families, youth, and communities.
+                </p>
+                <p>
+                  She is a holder of a Bachelor's in Education degree and a Master of Arts in Literature in English degree from the University of Nairobi.
+                </p>
+                <p>
+                  As a Sister Temple Worker, she considers her service in the temple a sacred responsibility and an opportunity to help others draw closer to God. Through her temple service, she seeks to demonstrate love, reverence, humility, and Christlike service while supporting individuals who participate in sacred ordinances. Her service has strengthened her testimony of Jesus Christ, the importance of covenants, and the eternal nature of families.
+                </p>
+                <p>
+                  She also serves as a Seminary Teacher, where she has the privilege of teaching and mentoring young people through the study of the scriptures and the gospel of Jesus Christ. She is passionate about helping youth develop strong testimonies, make righteous choices, build confidence, and apply gospel principles in their daily lives. Her teaching is centered on creating an environment where young people feel valued, encouraged, and inspired to become responsible disciples and future leaders.
+                </p>
+                <p>
+                  A teacher by profession, she is an experienced Educational Manager with a strong interest in improving the quality of education and creating opportunities for learners and educators. Her work involves leadership, administration, mentorship, planning, coordination, and community engagement. She believes that education is a powerful tool for transforming individuals and communities and is committed to promoting learning, integrity, leadership, and self-reliance.
+                </p>
+                <p>
+                  As a Community Development Worker, she has demonstrated a deep commitment to improving the social and economic well-being of families and communities. She is passionate about initiatives that empower women and youth, support education, promote self-reliance, and create sustainable opportunities for disadvantaged members of society. Her approach to community development is rooted in service, collaboration, dignity, and practical solutions to local challenges.
+                </p>
+                <p>
+                  Above all, she is a loving mother and devoted family woman. She considers motherhood one of her greatest responsibilities and blessings. She strives to nurture her family with love, faith, discipline, education, and strong moral values. She believes that strong families are the foundation of strong communities and nations.
+                </p>
+                <p>
+                  Through her roles in temple service, gospel teaching, education, community development, and motherhood, she continues to make a meaningful contribution to the lives of those around her. Her life reflects a commitment to faith, family, education, service, leadership, and community transformation, with a desire to follow the example of Jesus Christ by lifting, teaching, and serving others.
+                </p>
+              </div>
+              <button class="see-more-btn" onclick="toggleBio('bio-anne', this)">
+                See More <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+
+            <h4>Portfolio &amp; Expertise</h4>
+            <ul>
+              <li>Program design, implementation &amp; management</li>
+              <li>Educational management &amp; mentorship</li>
+              <li>Women's and youth empowerment initiatives</li>
+              <li>Community development &amp; self-reliance programs</li>
+              <li>Faith-based teaching and youth mentoring</li>
+              <li>Leadership, administration &amp; coordination</li>
+            </ul>
+
+            <h4>Key Areas</h4>
+            <div class="portfolio-badges">
+              <span>Education</span>
+              <span>Women Empowerment</span>
+              <span>Youth Mentorship</span>
+              <span>Community Development</span>
+              <span>Self-Reliance</span>
+              <span>Leadership</span>
+              <span>Faith &amp; Service</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-wrap">
+    <div class="container">
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="copy">
+        &copy; <a href="#">Riruta United Women Empowerment Programme (RUWEPO)</a>. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Mobile menu toggle
+    (function() {
+      const toggle = document.getElementById('hamburgerToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (toggle && mobileMenu) {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          mobileMenu.classList.toggle('open');
+        });
+      }
+    })();
+
+    // See More / See Less toggle function
+    function toggleBio(bioId, button) {
+      const bioContent = document.getElementById(bioId);
+      const isExpanded = bioContent.classList.contains('expanded');
+
+      if (isExpanded) {
+        // Collapse
+        bioContent.classList.remove('expanded');
+        button.innerHTML = 'See More <i class="fas fa-chevron-down"></i>';
+        button.classList.remove('expanded');
+        // Smooth scroll back to the bio start
+        bioContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        // Expand
+        bioContent.classList.add('expanded');
+        button.innerHTML = 'See Less <i class="fas fa-chevron-up"></i>';
+        button.classList.add('expanded');
+      }
+    }
+  </script>
+</body>
+</html>

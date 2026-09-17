@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Involved · Reach the Children</title>
+  <!-- Google Fonts (Cabin & Montserrat) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Cabin', sans-serif;
+      background: #fff;
+      color: #1f2a1e;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ----- header / nav (same as other pages) ----- */
+    .birdseye-header {
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+    }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo img {
+      max-height: 60px;
+      width: auto;
+    }
+    .desktop-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .desktop-nav ul li a {
+      color: #1f2a1e;
+      transition: color 0.2s;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .desktop-nav ul li a:hover,
+    .desktop-nav ul li.active a {
+      color: #487429;
+      border-bottom-color: #487429;
+    }
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #1f2a1e;
+    }
+    .nav-mobile {
+      display: none;
+      background: #f9faf8;
+      padding: 16px 24px 24px;
+      border-top: 1px solid #e0e6db;
+    }
+    .nav-mobile ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .nav-mobile ul li a {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1f2a1e;
+      padding: 6px 0;
+      border-bottom: 1px solid #e0e6db;
+    }
+    .nav-mobile ul li a:hover {
+      color: #487429;
+    }
+    .nav-mobile.open {
+      display: block;
+    }
+
+    /* ----- banner (get involved) ----- */
+    .banner-wrap {
+      background: linear-gradient(135deg, #dce8d4 0%, #b8ceab 100%);
+      padding: 60px 0 70px;
+      background-image: url('images/involved.png');
+      background-size: cover;
+      background-position: center 50%;
+      background-blend-mode: overlay;
+      background-color: rgba(30, 50, 20, 0.4);
+      color: #fff;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+    }
+    .banner-wrap .container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .banner-wrap h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.6rem;
+      font-weight: 700;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .btn {
+      display: inline-block;
+      background: #508d24;
+      color: #fff;
+      padding: 10px 34px;
+      border-radius: 40px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .btn:hover {
+      background: #3f711c;
+      transform: scale(1.02);
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* ----- main content ----- */
+    .section {
+      padding: 50px 0;
+    }
+    .section-alt {
+      background: #fcfcfc;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 16px;
+      color: #1f2a1e;
+    }
+    .section-title.green {
+      color: #487429;
+    }
+    .section-sub {
+      text-align: center;
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 32px;
+      color: #2a3d26;
+    }
+    .hr-divider {
+      width: 80px;
+      height: 3px;
+      background: #cbdcc2;
+      margin: 24px auto 32px;
+      border-radius: 4px;
+    }
+
+    /* top action buttons row */
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 16px 0 24px;
+    }
+    .action-buttons .btn {
+      min-width: 180px;
+      text-align: center;
+    }
+
+    /* involvement cards (2-column layout) */
+    .involve-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 30px;
+      margin-top: 20px;
+    }
+    .involve-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px 22px 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s;
+    }
+    .involve-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+    .involve-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      color: #1f2a1e;
+    }
+    .involve-card p {
+      font-size: 0.98rem;
+      color: #3d4d3a;
+    }
+    .involve-card img {
+      border-radius: 12px;
+      margin: 12px auto 0;
+      width: 100%;
+      max-height: 220px;
+      object-fit: cover;
+    }
+    .involve-card .btn-sm {
+      margin-top: 16px;
+      display: inline-block;
+    }
+    .btn-sm {
+      display: inline-block;
+      background: #487429;
+      color: #fff;
+      padding: 8px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: background 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-sm:hover {
+      background: #3a631f;
+      transform: scale(1.02);
+    }
+
+    /* ----- footer ----- */
+    .footer-wrap {
+      background: #1f2a1e;
+      color: #d3ddd0;
+      padding: 32px 0 24px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .footer-wrap .social-icons a {
+      color: #d3ddd0;
+      margin: 0 12px;
+      font-size: 1.6rem;
+      transition: color 0.2s;
+    }
+    .footer-wrap .social-icons a:hover {
+      color: #aacf97;
+    }
+    .footer-wrap .copy {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+    }
+    .footer-wrap .copy a {
+      color: #aacf97;
+    }
+    .footer-wrap .copy a:hover {
+      text-decoration: underline;
+    }
+
+    /* ----- responsive ----- */
+    @media (max-width: 992px) {
+      .involve-grid { grid-template-columns: 1fr; max-width: 600px; margin-left: auto; margin-right: auto; }
+      .banner-wrap .container { align-items: center; text-align: center; }
+      .banner-wrap h1 { font-size: 2.6rem; }
+      .action-buttons { flex-direction: column; align-items: center; }
+      .action-buttons .btn { width: 100%; max-width: 300px; }
+    }
+    @media (max-width: 768px) {
+      .desktop-nav { display: none; }
+      .hamburger { display: block; }
+      .banner-wrap h1 { font-size: 2rem; }
+      .section-title { font-size: 1.6rem; }
+      .involve-card { padding: 18px 16px; }
+    }
+    @media (max-width: 480px) {
+      .banner-wrap { padding: 40px 0; min-height: 300px; }
+      .banner-wrap h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="birdseye-header">
+    <div class="container nav-wrap">
+      <div class="logo">
+        <a href="#">
+          <img src="images/logo-removebg-preview.png" alt="Reach the Children logo" style="max-height:60px;">
+        </a>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="portfolio.html">Our Directors</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="powerfulprojects.html">Powerful Projects</a></li>
+          <li class="active"><a href="getinvolved.html">Get Involved</a></li>
+          <li><a href="contactus.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" id="hamburgerToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+    <!-- mobile menu -->
+    <div class="nav-mobile" id="mobileMenu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="portfolio.html">Powerful Projects</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="getinvolved.html">Get Involved</a></li>
+        <li><a href="contactus.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== BANNER ===== -->
+  <section class="banner-wrap">
+    <div class="container">
+      <h1>Get Involved</h1>
+      <div class="btn-group">
+        <a href="#" class="btn">Donate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- mission statement -->
+        <div style="max-width:900px; margin:0 auto 20px; background:#f9fbf8; padding:24px 28px; border-radius:20px; border-left:6px solid #487429;">
+          <p style="font-size:1.1rem; text-align:center;">
+            We are committed to responsible management of all donated funds. Like the child on the seashore trying to save as many starfish as possible, we may not be able to 'save' <em>everyone</em>, but we can help bring about needed change for families &amp; thus communities striving to improve their lives. We commit to maximize our effectiveness and invite you to help us by getting involved.
+          </p>
+        </div>
+
+        <!-- action buttons -->
+        <div class="action-buttons">
+          <a href="#" class="btn" style="background:#487429;">Volunteer</a>
+          <a href="#" class="btn" style="background:#487429;">PartnerTrips</a>
+          <a href="#" class="btn" style="background:#487429;">Corporate Support</a>
+        </div>
+
+        <div class="hr-divider"></div>
+
+        <!-- three involvement sections -->
+        <div class="involve-grid">
+
+          <!-- Volunteer -->
+          <div class="involve-card">
+            <h3>Volunteer</h3>
+            <p>
+              RUWEPO is always looking for volunteers. Opportunities are available for interns to help with fundraising, marketing, and social media efforts. As needed, we may have opportunities to help send items overseas to needing families and children. If you're interested in volunteering, click our 'Volunteer' button and fill out the contact form.
+            </p>
+            <img src="images/volun.png" alt="Volunteer">
+            <a href="#" class="btn-sm" style="margin-top:14px;">Volunteer</a>
+          </div>
+
+          <!-- PartnerTrips -->
+          <div class="involve-card">
+            <h3>PARTNERTRIPS</h3>
+            <p>
+              We have changed the name of our 'service expeditions' to PartnerTrips.<br><br>
+              <strong>As needed,</strong> RUWEPO develops and organizes teams of volunteers to <strong>partner</strong> with indigenous groups &amp; organizations in Africa. Each unique team focuses on the needs of the people we serve. They assist RTC's mission through international hands-on service; by implementing its humanitarian projects and programs. If serving appeals to you, <a href="#" style="color:#487429; font-weight:700;">click here</a>.
+            </p>
+            <img src="images/part.png" alt="PartnerTrips">
+            <a href="#" class="btn-sm" style="margin-top:14px;">Learn More</a>
+          </div>
+
+          <!-- Corporate Support (spans full width in grid, but we keep it as a card) -->
+          <div class="involve-card" style="grid-column: 1 / -1; max-width: 700px; margin: 0 auto; width:100%;">
+            <h3>Corporate Support</h3>
+            <p>
+              RUWEPO is always looking for opportunities to connect with corporate supporters. Maybe it's a donated grant that helps you fulfill your mission. Maybe it's simple like an employee giving program. Whatever you choose, we'll help you make the best of it. If you're interested in providing support, please <a href="#" style="color:#487429; font-weight:700;">click here</a>.
+            </p>
+            <img src="images/coorp.png" alt="Corporate Support">
+            <a href="#" class="btn-sm" style="margin-top:14px;">Corporate Support</a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-wrap">
+    <div class="container">
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="copy">
+        &copy; <a href="#">RUWEPO</a>. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== MOBILE TOGGLE ===== -->
+  <script>
+    (function() {
+      const toggle = document.getElementById('hamburgerToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (toggle && mobileMenu) {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          mobileMenu.classList.toggle('open');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

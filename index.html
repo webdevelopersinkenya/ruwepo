@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUWEPO · Home</title>
+  <!-- Google Fonts (Cabin & Montserrat) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Cabin', sans-serif;
+      background: #fff;
+      color: #1f2a1e;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ----- header / nav with banner background ----- */
+    .birdseye-header {
+      background: linear-gradient(135deg, #e6efe0 0%, #c8dcc0 100%);
+      background-image: url('https://picsum.photos/seed/rtc-banner/1600/600');
+      background-size: cover;
+      background-position: center 50%;
+      background-blend-mode: overlay;
+      background-color: rgba(30, 50, 20, 0.5);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 12px 0;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+    }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo img {
+      max-height: 80px;
+      width: auto;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    .desktop-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .desktop-nav ul li a {
+      color: #ffffff;
+      transition: color 0.2s;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .desktop-nav ul li a:hover,
+    .desktop-nav ul li.active a {
+      color: #d4edc9;
+      border-bottom-color: #d4edc9;
+    }
+
+    /* ----- PLAIN WHITE DROPDOWN - NO LINES, NO UNDERLINES, SHARP CORNERS ----- */
+    .dropdown-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffffff;
+      min-width: 240px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: 6px 0;
+      margin-top: 8px;
+      border: 1px solid #e0e6db;
+      z-index: 999;
+    }
+    .dropdown-nav a {
+      display: block;
+      padding: 10px 24px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: #1f2a1e;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+      text-decoration: none !important;
+      border-bottom: none !important;
+      border: none !important;
+      outline: none !important;
+      text-shadow: none !important;
+    }
+    .dropdown-nav a:last-child {
+      border-bottom: none !important;
+    }
+    .dropdown-nav a:hover {
+      background: #f0f5ec;
+      color: #487429;
+      text-decoration: none !important;
+      border-bottom: none !important;
+    }
+    .desktop-nav ul li {
+      position: relative;
+    }
+    .desktop-nav ul li:hover .dropdown-nav {
+      display: block;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .nav-mobile {
+      display: none;
+      background: rgba(255,255,255,0.95);
+      padding: 16px 24px 24px;
+      border-top: 1px solid #e0e6db;
+      backdrop-filter: blur(10px);
+    }
+    .nav-mobile ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .nav-mobile ul li a {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1f2a1e;
+      padding: 6px 0;
+      border-bottom: 1px solid #e0e6db;
+    }
+    .nav-mobile ul li a:hover {
+      color: #487429;
+    }
+    .nav-mobile.open {
+      display: block;
+    }
+
+    /* ----- banner (hero) ----- */
+    .banner-wrap {
+      background: linear-gradient(135deg, #e6efe0 0%, #c8dcc0 100%);
+      padding: 80px 0 100px;
+      background-image: url('/images/r12.jpeg');
+      background-size: cover;
+      background-position: center 50%;
+      background-blend-mode: overlay;
+      background-color: rgba(40, 60, 30, 0.35);
+      color: #fff;
+      margin-top: 0;
+    }
+    .banner-wrap .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      text-align: center;
+    }
+    .banner-wrap h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .banner-wrap .subhead {
+      font-size: 1.3rem;
+      font-weight: 400;
+      background: rgba(0,0,0,0.3);
+      padding: 8px 32px;
+      border-radius: 40px;
+      backdrop-filter: blur(4px);
+      margin-bottom: 28px;
+      display: inline-block;
+    }
+    .btn {
+      display: inline-block;
+      background: #508d24;
+      color: #fff;
+      padding: 12px 40px;
+      border-radius: 40px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .btn:hover {
+      background: #3f711c;
+      transform: scale(1.03);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #fff;
+      box-shadow: none;
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.15);
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    /* ----- main sections (existing content) ----- */
+    .section {
+      padding: 60px 0;
+    }
+    .section-alt {
+      background: #f4f4f4;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .section-sub {
+      text-align: center;
+      font-size: 1.2rem;
+      max-width: 780px;
+      margin: 0 auto 40px;
+      color: #3d4d3a;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 30px;
+      margin-top: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px 20px 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s;
+      text-align: center;
+    }
+    .card:hover {
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+    .card img {
+      border-radius: 12px;
+      margin: 0 auto 16px;
+      max-height: 180px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #1f2a1e;
+    }
+    .card h3 a {
+      color: #487429;
+    }
+    .card p {
+      font-size: 0.98rem;
+      color: #3d4d3a;
+      text-align: left;
+    }
+    .hr-divider {
+      width: 80px;
+      height: 3px;
+      background: #cbdcc2;
+      margin: 24px auto 32px;
+      border-radius: 4px;
+    }
+
+    /* donate spotlight */
+    .donate-spotlight {
+      background: #eaf3e4;
+      padding: 50px 0;
+    }
+    .donate-spotlight .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 30px;
+      align-items: center;
+    }
+    .donate-spotlight .card {
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      text-align: center;
+    }
+    .donate-spotlight .card img {
+      border-radius: 16px;
+      max-height: 220px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .donate-spotlight h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1f2a1e;
+    }
+    .donate-spotlight h2 span {
+      color: #508d24;
+    }
+
+    /* ----- footer ----- */
+    .footer-wrap {
+      background: #1f2a1e;
+      color: #d3ddd0;
+      padding: 32px 0 24px;
+      text-align: center;
+    }
+    .footer-wrap .social-icons a {
+      color: #d3ddd0;
+      margin: 0 12px;
+      font-size: 1.6rem;
+      transition: color 0.2s;
+    }
+    .footer-wrap .social-icons a:hover {
+      color: #aacf97;
+    }
+    .footer-wrap .copy {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+    }
+    .footer-wrap .copy a {
+      color: #aacf97;
+    }
+    .footer-wrap .copy a:hover {
+      text-decoration: underline;
+    }
+
+    /* ----- responsive ----- */
+    @media (max-width: 992px) {
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .donate-spotlight .grid-2 { grid-template-columns: 1fr; gap: 30px; }
+      .banner-wrap h1 { font-size: 3.2rem; }
+      .banner-wrap .subhead { font-size: 1.2rem; }
+    }
+    @media (max-width: 768px) {
+      .desktop-nav { display: none; }
+      .hamburger { display: block; }
+      .grid-3 { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+      .banner-wrap h1 { font-size: 2.6rem; }
+      .banner-wrap .subhead { font-size: 1rem; padding: 6px 20px; }
+      .banner-wrap { padding: 60px 0 80px; }
+      .section-title { font-size: 1.8rem; }
+      .donate-spotlight h2 { font-size: 1.6rem; }
+      .logo img { max-height: 60px; }
+    }
+    @media (max-width: 480px) {
+      .banner-wrap { padding: 40px 0 60px; }
+      .banner-wrap h1 { font-size: 2rem; }
+      .banner-wrap .subhead { font-size: 0.9rem; }
+      .banner-wrap .container { min-height: 300px; }
+      .btn-group .btn { width: 100%; text-align: center; }
+      .logo img { max-height: 50px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER WITH BANNER BACKGROUND ===== -->
+  <header class="birdseye-header">
+    <div class="container nav-wrap">
+      <div class="logo">
+        <a href="index.html">
+          <img src="/images/logo-removebg-preview.png" alt="RUWEPO logo" style="max-height:80px;">
+        </a>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li class="active"><a href="index.html">Home</a></li>
+          <li>
+            <a href="programs.html">Programs</a>
+            <!-- PLAIN WHITE DROPDOWN -->
+            <div class="dropdown-nav">
+              <a href="communityempowerment.html">COMMUNITY EMPOWERMENT</a>
+              <a href="education.html">EDUCATION</a>
+              <a href="health.html">HEALTH</a>
+              <a href="lifeskills.html">LIFE-SKILLS/AIDS-PREVENTION</a>
+              <a href="micro.html">MICRO-ENTERPRISE</a>
+              <a href="orphancare.html">ORPHAN CARE</a>
+              <a href="water.html">WATER AND AGRICULTURE</a>
+            </div>
+          </li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="portfolio.html">Our Directors</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="powerfulprojects.html">Powerful Projects</a></li>
+          <li><a href="getinvolved.html">Get Involved</a></li>
+          <li><a href="contactus.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" id="hamburgerToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+    <!-- mobile menu -->
+    <div class="nav-mobile" id="mobileMenu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="portfolio.html">Our Directors</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="powerfulprojects.html">Powerful Projects</a></li>
+        <li><a href="getinvolved.html">Get Involved</a></li>
+        <li><a href="contactus.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== BANNER / HERO ===== -->
+  <section class="banner-wrap">
+    <div class="container">
+      <h1>Riruta United Women Empowerment Programme</h1>
+      <div class="subhead">Empowering communities in Kenya's slums</div>
+      <div class="btn-group">
+        <a href="donate.html" class="btn">Donate</a>
+        <a href="aboutus.html" class="btn btn-outline">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+
+    <!-- section: empowering communities -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title"><strong>EMPOWERING COMMUNITIES AND FAMILIES</strong></h2>
+        <p class="section-sub" style="font-size:1.3rem; font-weight:600; color:#2a4a1e;">
+          TO BECOME SELF-RELIANT BY STRENGTHENING COMMUNITIES
+        </p>
+        <div class="btn-group" style="margin-bottom:30px;">
+          <a href="donate.html" class="btn">Donate Today</a>
+          <a href="aboutus.html" class="btn" style="border-color:#508d24; color:#508d24; background:transparent; border:2px solid #508d24;">Our Mission</a>
+        </div>
+        <div class="hr-divider"></div>
+
+        <!-- 3 columns: Programs / Powerful Projects / Get Involved -->
+        <div class="grid-3">
+          <div class="card">
+            <img src="/images/r22.jpg" alt="Programs">
+            <h3><a href="programs.html">PROGRAMS</a></h3>
+            <p>RUWEPO operates exclusively in Kenya, focusing on the slums where we empower communities, orphans, widows, and people living with disabilities. Our programs are built on principles of self-reliance with a "teach them to fish" approach, helping individuals and families determine what they truly need to succeed. We use a holistic approach across Life-Skills training, Education, Health, Orphan Care, Micro-Enterprise, Water &amp; Agriculture, and Community Empowerment.</p>
+          </div>
+          <div class="card">
+            <img src="/images/r23.jpg" alt="Powerful Projects">
+            <h3><a href="powerfulprojects.html" style="color:#487429;">POWERFUL PROJECTS</a></h3>
+            <p>We facilitate holistic projects that save lives, teach skills, and create opportunities for lifelong self-reliance among the vulnerable communities we serve in Kenya. Our projects range from short-term to long-term, donor-specific to general ongoing campaigns — giving everyone who wants to make a difference a chance to help. We invite you to select a Powerful Project that appeals to you and DONATE to get it done!</p>
+          </div>
+          <div class="card">
+            <img src="/images/r24.jpg" alt="Get Involved">
+            <h3><a href="getinvolved.html">GET INVOLVED</a></h3>
+            <p>We always strive to be responsible in our management of all donated funds. We cannot solve all the problems or help everyone — we are like the child on the seashore trying to save as many starfish as we can. But we commit to maximize our effectiveness and invite you to join us in empowering orphans, widows, people with disabilities, and struggling families in Kenya's slums. Together, we can save many more starfish.</p>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:40px;">
+          <a href="#" class="btn" style="background:#487429;">Watch a RUWEPO Video and See How We Serve!</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DONATION SPOTLIGHT ===== -->
+    <section class="donate-spotlight">
+      <div class="container">
+        <h2 style="text-align:center; font-family:'Montserrat',sans-serif; font-weight:700; font-size:2.2rem; margin-bottom:8px;">
+          JOIN THOUSANDS OF OTHERS TO MAKE EVERY $1 COUNT
+        </h2>
+        <p style="text-align:center; font-size:1.1rem; max-width:800px; margin:0 auto 32px; color:#1f2a1e;">
+          <strong style="color:#3d7a1a; font-size:1.3rem;">Be part of HELPING INDIVIDUALS with disabilities, orphans, and widows to THRIVE! Be part of the SOLUTION!</strong><br>
+          In Kenya's slums, many disabled children, orphans, and widows are abandoned and left to fend for themselves.<br>
+          RUWEPO is working on the ground to empower these individuals and help them become as self-sufficient as they are able.<br>
+          We support education, teach practical skills, and provide care for those who have no one else to turn to.<br>
+          <strong>When you give $1 to 'Where Needed Most',</strong><br>
+          You help us reach more vulnerable families in Kenya's informal settlements with practical, lasting support.<br>
+          The opportunity to live lives of independence and meaning is all they ask. YOU can help them achieve that goal.
+        </p>
+
+        <div class="grid-2">
+          <div class="card" style="background:transparent; box-shadow:none; padding:0;">
+            <div style="text-align:center; margin-bottom:16px;">
+              <a href="donate.html" class="btn">DONATE TO THIS PROJECT</a>
+            </div>
+            <img src="images/rwp.jpg" alt="Project image 1" style="border-radius:16px;">
+          </div>
+          <div class="card" style="background:transparent; box-shadow:none; padding:0;">
+            <div style="text-align:center; margin-bottom:16px;">
+              <a href="donate.html" class="btn">Other $1 Projects</a>
+            </div>
+            <img src="images/pwd.jpg" alt="Project image 2" style="border-radius:16px;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-wrap">
+    <div class="container">
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="copy">
+        &copy; <a href="#">RUWEPO</a>. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== MOBILE TOGGLE ===== -->
+  <script>
+    (function() {
+      const toggle = document.getElementById('hamburgerToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (toggle && mobileMenu) {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          mobileMenu.classList.toggle('open');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

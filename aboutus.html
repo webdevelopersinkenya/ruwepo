@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us · RUWEPO</title>
+  <!-- Google Fonts (Cabin & Montserrat) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Cabin', sans-serif;
+      background: #fff;
+      color: #1f2a1e;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ----- header / nav ----- */
+    .birdseye-header {
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+    }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo img {
+      max-height: 60px;
+      width: auto;
+    }
+    .desktop-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .desktop-nav ul li a {
+      color: #1f2a1e;
+      transition: color 0.2s;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .desktop-nav ul li a:hover,
+    .desktop-nav ul li.active a {
+      color: #487429;
+      border-bottom-color: #487429;
+    }
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #1f2a1e;
+    }
+    .nav-mobile {
+      display: none;
+      background: #f9faf8;
+      padding: 16px 24px 24px;
+      border-top: 1px solid #e0e6db;
+    }
+    .nav-mobile ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .nav-mobile ul li a {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1f2a1e;
+      padding: 6px 0;
+      border-bottom: 1px solid #e0e6db;
+    }
+    .nav-mobile ul li a:hover {
+      color: #487429;
+    }
+    .nav-mobile.open {
+      display: block;
+    }
+
+    /* ----- banner ----- */
+    .banner-wrap {
+      background: linear-gradient(135deg, #dce8d4 0%, #c0d4b6 100%);
+      padding: 50px 0 60px;
+      background-image: url('images/stp.jpg');
+      background-size: cover;
+      background-position: center 0%;
+      background-blend-mode: overlay;
+      background-color: rgba(40, 60, 30, 0.35);
+      color: #fff;
+    }
+    .banner-wrap .container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      min-height: 220px;
+      text-align: right;
+    }
+    .banner-wrap h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      text-shadow: 0 4px 14px rgba(0,0,0,0.2);
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .btn {
+      display: inline-block;
+      background: #508d24;
+      color: #fff;
+      padding: 10px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .btn:hover {
+      background: #3f711c;
+      transform: scale(1.02);
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: flex-end;
+    }
+
+    /* ----- main content ----- */
+    .section {
+      padding: 50px 0;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 12px;
+      color: #1f2a1e;
+    }
+    .section-sub {
+      text-align: center;
+      font-size: 1.1rem;
+      max-width: 780px;
+      margin: 0 auto 32px;
+      color: #2a3d26;
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin: 16px 0 28px;
+    }
+    .btn-sm {
+      background: #eaf3e4;
+      color: #1f2a1e;
+      padding: 8px 22px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: 2px solid #cbdcc2;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-sm:hover {
+      background: #d4e6ca;
+      border-color: #508d24;
+    }
+    .hr-divider {
+      width: 80px;
+      height: 3px;
+      background: #cbdcc2;
+      margin: 24px auto 32px;
+      border-radius: 4px;
+    }
+
+    /* ----- accordion ----- */
+    .accordion-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .accordion-item {
+      background: #f9fbf8;
+      border-bottom: 1px solid #e0e6db;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .accordion-item:hover {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .accordion-title {
+      background: #ebebeb;
+      padding: 14px 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+      color: #1f2a1e;
+      user-select: none;
+    }
+    .accordion-title:hover {
+      background: #e0e6db;
+    }
+    .accordion-title .icon {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: #7a8f72;
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 24px;
+      background: #fafafa;
+    }
+    .accordion-content-inner {
+      padding: 16px 0 24px;
+    }
+    .accordion-item.active .accordion-title {
+      background: #dce8d4;
+    }
+    .accordion-item.active .accordion-title .icon {
+      transform: rotate(45deg);
+    }
+    .accordion-item.active .accordion-content {
+      max-height: 1200px;
+      padding: 0 24px;
+    }
+
+    /* ----- FOOTER (full width) ----- */
+    .footer-wrap {
+      background: #1f2a1e;
+      color: #d3ddd0;
+      padding: 32px 0 24px;
+      text-align: center;
+      width: 100%;
+      display: block;
+    }
+    .footer-wrap .social-icons {
+      margin-bottom: 6px;
+    }
+    .footer-wrap .social-icons a {
+      color: #d3ddd0;
+      margin: 0 12px;
+      font-size: 1.6rem;
+      transition: color 0.2s;
+    }
+    .footer-wrap .social-icons a:hover {
+      color: #aacf97;
+    }
+    .footer-wrap .copy {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+    }
+    .footer-wrap .copy a {
+      color: #aacf97;
+    }
+    .footer-wrap .copy a:hover {
+      text-decoration: underline;
+    }
+
+    /* ----- responsive ----- */
+    @media (max-width: 992px) {
+      .banner-wrap .container { align-items: center; text-align: center; }
+      .btn-group { justify-content: center; }
+      .banner-wrap h1 { font-size: 2.6rem; }
+    }
+    @media (max-width: 768px) {
+      .desktop-nav { display: none; }
+      .hamburger { display: block; }
+      .banner-wrap h1 { font-size: 2rem; }
+      .section-title { font-size: 1.6rem; }
+      .accordion-title { font-size: 0.95rem; padding: 12px 18px; }
+      .accordion-content { padding: 0 18px; }
+      .accordion-item.active .accordion-content { padding: 0 18px; }
+    }
+    @media (max-width: 480px) {
+      .banner-wrap { padding: 30px 0; }
+      .banner-wrap h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="birdseye-header">
+    <div class="container nav-wrap">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo-removebg-preview.png" alt="RUWEPO logo" style="max-height:60px;">
+        </a>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li class="active"><a href="aboutus.html">About Us</a></li>
+          <li><a href="portfolio.html">Our Directors</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="powerfulprojects.html">Powerful Projects</a></li>
+          <li><a href="getinvolved.html">Get Involved</a></li>
+          <li><a href="contactus.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" id="hamburgerToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+    <!-- mobile menu -->
+    <div class="nav-mobile" id="mobileMenu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="portfolio.html">Our Directors</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="powerfulprojects.html">Powerful Projects</a></li>
+        <li><a href="getinvolved.html">Get Involved</a></li>
+        <li><a href="contactus.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== BANNER ===== -->
+  <section class="banner-wrap">
+    <div class="container">
+      <h1>About Us</h1>
+      <div class="btn-group">
+        <a href="donate.html" class="btn">Donate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <h2 class="section-title">MORE ABOUT US</h2>
+
+        <!-- quick links row -->
+        <div class="btn-row">
+          <a href="directors.html" class="btn-sm">Board of Directors</a>
+          <a href="#" class="btn-sm">Annual Documents</a>
+          <a href="programs.html" class="btn-sm">Programs</a>
+        </div>
+
+        <div class="hr-divider"></div>
+
+        <p class="section-sub" style="font-size:1.1rem; margin-bottom:40px;">
+          RUWEPO recognizes the interlocking nature of development issues – that good health, education, and employment are all necessary features of sustainable communities.
+        </p>
+
+        <!-- ===== GUIDING PRINCIPLES (accordion) ===== -->
+        <h2 class="section-title" style="margin-top:10px;">Guiding Principles</h2>
+
+        <div class="accordion-wrapper">
+
+          <!-- item 1 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content1">
+              <span>Mission Statement</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content1">
+              <div class="accordion-content-inner">
+                RUWEPO provides underprivileged children and vulnerable members of society opportunities to become self-reliant by strengthening families and communities. We accomplish this mission by taking a community development approach to AIDS Prevention, Education &amp; Health, Micro-Enterprise, Orphan Care, Water &amp; Agriculture and Community Empowerment Initiatives.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 2 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content2">
+              <span>Stewardship &amp; Accountability</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content2">
+              <div class="accordion-content-inner">
+                Every penny of your dollar donated to RUWEPO goes to benefit the children and communities we serve. All administrative and overhead costs are covered by private donations so 100% of your contribution will support direct program benefits. We commit to maximize the value of your contributions to help the needy children we serve and minimize any expense that does not directly provide benefit.<br><br>
+                We value your trust in us, and so we promise to keep confidential the identity of all donors on our mailing lists. We do not rent, sell, or exchange these lists. We always strive to be responsible in our management, truthful in our advertising, and cost-effective in our fundraising.<br><br>
+                Over the past years, in numerous development attempts, a multitude of aid organizations have inundated Africa with loans and donations, all hoping to alleviate suffering there. With these millions of dollars spent, Africa still struggles with disease, unemployment and underemployment, poverty and malnutrition. Where has all the money gone? In many aid organizations a significant part of donors' contributions end up paying for consultants, trainers, and administrative costs. RUWEPO is unique in that the organization pays no salaries. Again, administrative costs are covered by outside funding.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 3 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content3">
+              <span>Self-Sufficiency and Sustainability</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content3">
+              <div class="accordion-content-inner">
+                Our projects are based on principles of self-reliance with a "teach them to fish" premise. We apply these principles at all levels: individual, project, and institutional. RUWEPO will only support projects that can achieve self-sufficiency within a reasonable time frame. RUWEPO will not begin implementing any new project until a detailed self-sufficiency plan has been approved. In evaluating proposed projects for funding, high priority is given to programs that will become self-sustaining. Programs that would require perpetual donor support are strongly discouraged.<br><br>
+                RUWEPO is particularly concerned with sustainable development. Institutional dependency is just as damaging as individual dependency. Some of our projects can be inherently self-sustaining. For those who cannot, we have launched local commercial ventures that partner with the humanitarian projects in each of the areas. The proceeds of the commercial projects sustain the nearby humanitarian efforts. In the process, the local economy is also enhanced with the direct benefit of jobs and the indirect benefits of multiplied economic activity.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 4 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content4">
+              <span>Comprehensive Development</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content4">
+              <div class="accordion-content-inner">
+                RUWEPO recognizes the interlocking nature of development issues – that good health, education, and employment are all necessary features of sustainable communities. We acknowledge that a community that lacks any of these aspects will not be successful in the long term. With this in mind, RUWEPO commits to follow up single projects in a community (e.g. schools) with additional programs (coordinated by RUWEPO or in partnership with other groups) that are aimed at comprehensive development. Additional projects will be undertaken within a reasonable timeframe and where necessary. Our efforts are most effective when there is a deep penetration into the interlocking aspects of a family and community, rather than a broader but shallower approach.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 5 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content5">
+              <span>Rural / Urban</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content5">
+              <div class="accordion-content-inner">
+                RUWEPO promotes and encourages rural development. To help stem the tide of rural-urban migration, RUWEPO supports the growth of sustainable rural communities by creating and promoting schools, agricultural projects, industry, micro-finance and/or other needed programs in rural areas. RUWEPO believes that urbanization, if not stemmed, will be devastating for many African families and ultimately for the countries in which they live.<br><br>
+                RUWEPO may also undertake urban projects, though this will not be the focus of our efforts. The primary function of urban projects will be to establish a physical presence and begin networking in new areas. We plan to use these urban contacts to network back to villages.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 6 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content6">
+              <span>Gender</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content6">
+              <div class="accordion-content-inner">
+                <strong>Gender</strong><br>
+                RUWEPO affirms the need to compensate for existing inequities by making a conscious effort to support women and girls in our programs. The ravages of poverty continue to afflict many, but all of us should be concerned with the alarming feminization of poverty. RUWEPO will continue to advocate for women at macro levels in our work with the U.N. and other networking as well as in our on-the-scene anti-poverty initiatives and programs.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 7 -->
+          <div class="accordion-item active">
+            <div class="accordion-title" data-target="content7">
+              <span>Education</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content7">
+              <div class="accordion-content-inner">
+                RUWEPO gives priority to the following types of programs: constructing primary and secondary schools, partnering with existing schools that share RUWEPO's commitment to principle-based education, providing school supplies to these schools, and advocating national and international educational policies that will benefit children. We also support adult education programs, especially where the use of our educational facilities can be leveraged. RUWEPO is committed to finding appropriate ways to make its educational programs open to all, without regard for ability to pay.<br><br>
+                Forty million children in Africa are not receiving basic education. RUWEPO will strive to help as many children as possible have the opportunity for education. RUWEPO will help implement repeatable, sustainable, self-reliant, and responsible educational programs.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 8 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content8">
+              <span>Employment</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content8">
+              <div class="accordion-content-inner">
+                Economic self-reliance is of critical importance to families and individuals. Most of Africa has high unemployment rates. Training and education, including vocational training, is critical to success. RUWEPO will offer and support vocational training programs for older youth and adults. Micro-credit loans are an important tool for those with an entrepreneurial interest.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 9 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content9">
+              <span>Health Care</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content9">
+              <div class="accordion-content-inner">
+                RUWEPO believes that good health is essential. To facilitate this, RUWEPO will focus on preventative health strategies such as providing vaccinations, immunizations, and other services. We will find feasible ways to provide, or to facilitate the provision of, affordable, sustainable, and quality health care in the areas where we are involved.<br><br>
+                RUWEPO also believes in quality health-care education. Basic health and hygiene information can be powerful tools for preventing illness. We commit to actively make accurate health information available in the communities we serve.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 10 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content10">
+              <span>Funding</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content10">
+              <div class="accordion-content-inner">
+                RUWEPO accepts funding from private and public sources, including individuals, foundations, corporations, and governments. We will not accept any funding, however, that would entail or imply the compromising of the principles of our organization.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 11 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content11">
+              <span>Fiscal Responsibility</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content11">
+              <div class="accordion-content-inner">
+                RUWEPO uses 100 percent of its donations on direct program benefits. We will accomplish this by soliciting private donations to cover administrative costs and other overhead.<br><br>
+                In keeping with our policy of using our funds as effectively as possible, we will, wherever possible, spend resources within the countries where we are facilitating development. We will, however, maintain quality and effectiveness as our highest priorities.<br><br>
+                RUWEPO also pledges to give high priority to programs that make use of labor-intensive technologies, in order to facilitate a wider and more equitable distribution of income, while maximizing benefit to the local economy.<br><br>
+                In all its fiscal decisions, RUWEPO is committed to extending comprehensive, long-term benefit to the widest possible number of families and individuals, within a community framework.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 12 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content12">
+              <span>Governing Boards</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content12">
+              <div class="accordion-content-inner">
+                RUWEPO is committed to creating and maintaining a Board of Directors that represent geographic and intellectual diversity and who support the goals of the organization. We strive to attract board members who bring knowledge, experience, and/or public presence that will facilitate the accomplishment of RUWEPO's objectives. These individuals will be primarily external to the day-to-day execution of our programs and external to the loyal volunteers. The Board will have responsibility for oversight of the strategic direction and implementation of our objectives.<br><br>
+                RUWEPO will maintain a working operational management body (currently called the Core Team) that is responsible for day-to-day execution of our programs and for tactical decisions and direction.<br><br>
+                RUWEPO will welcome advice and counsel from an Advisory Board whose members have special expertise in areas of interest and benefit to the organization.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 13 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content13">
+              <span>Partnering</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content13">
+              <div class="accordion-content-inner">
+                RUWEPO affirms the need to remain involved with and/or partner with other non-governmental organizations to facilitate the accomplishment of its development objectives. These associations are needed in order to ensure that appropriate levels of knowledge and experience are brought to every aspect of RUWEPO's projects.<br><br>
+                Further, in order to make its voice heard on matters of development policy, RUWEPO commits to remain engaged with the United Nations and its agencies. We recognize that our development efforts cannot be successful in the long-term without advocating child-friendly and family-friendly national and international policy changes in Africa. Additionally, as part of its operations, RUWEPO will operate for-profit subsidiary firms or ancillary organizations. The objective of these firms will be to contribute to the local African economy by generating ongoing community employment. All profits realized from these ventures will be used for reinvestment in RUWEPO development projects. RUWEPO may also partner with other for-profit enterprises to realize its development objectives.<br><br>
+                Finally, RUWEPO will not engage in any partnership with any organization that may cause RUWEPO to compromise its principles.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 14 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content14">
+              <span>Public Relations</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content14">
+              <div class="accordion-content-inner">
+                RUWEPO strives to achieve high levels of positive public exposure in a cost-effective, responsible manner. We commit to cover our publicity expenses with minimum impact on RUWEPO funds. In our publicity materials, we will emphasize our guiding philosophy – that both the giver and the receiver of a gift are benefited.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 15 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content15">
+              <span>Affiliation</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content15">
+              <div class="accordion-content-inner">
+                RUWEPO is not sponsored or endorsed by any religious or political organization. At every level of our programs and administration, we accept and encourage the participation of all without regard to race, language, gender, or religion. At the same time, we respect the right of donors to specify how their donation will be used if they so desire; some of our programs may therefore be restricted to specific groups.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 16 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content16">
+              <span>Housing</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content16">
+              <div class="accordion-content-inner">
+                RUWEPO recognizes that adequate shelter is a fundamental part of comprehensive development. In the areas where we are working on projects, we will partner with other organizations that can facilitate the creation or improvement of local housing.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 17 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content17">
+              <span>Orphans</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content17">
+              <div class="accordion-content-inner">
+                RUWEPO recognizes that sub-Saharan Africa is home to a growing number of orphans, due to AIDS, conflicts, and other factors. We commit to finding effective ways to improve the life chances of these children through education and placement within schools and/or families. We emphasize the need for family atmosphere wherever possible by establishing Sustainable Homes for Orphans, rather than orphanages. There may be other incentives we can offer, such as micro-credit priority for those who take in orphans, etc.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 18 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content18">
+              <span>Food/Agriculture</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content18">
+              <div class="accordion-content-inner">
+                RUWEPO affirms that agricultural development is the cornerstone of rural development. We will partner with local, regional, national, and international agricultural experts to bring improved knowledge and techniques to rural communities. We will also facilitate the efforts of other organizations that may want to provide seeds, tools, or other materials to African farmers. Along with our commitment to improving agriculture generally, we also commit to providing meals for students who attend our schools. We will accomplish this by locating self-sustaining agricultural projects at or near the schools.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 19 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content19">
+              <span>Quiet Service</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content19">
+              <div class="accordion-content-inner">
+                People engaged in this work do so because of a desire to serve, rather than to be recognized. Anyone involved with RUWEPO is discouraged from taking any personal credit for success or service and is encouraged to give credit to the Lord and direct attention to the larger RUWEPO organization. The work is bigger than any specific person or persons. There are occasions where some personal recognition will further the work of the organization. In these cases, the individual(s) is requested to respond in a way as to promote a spirit of service and support of those we serve, not of self-aggrandizement.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 20 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content20">
+              <span>Teach Them Correct Principles</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content20">
+              <div class="accordion-content-inner">
+                RUWEPO has standard processes to implement our various programs. We base these processes on principles of self-reliance, sustainability, respect for the dignity of the individual, comprehensive rural development, affirmative action for women and girls, and support of the traditional nuclear family. This includes family-friendly policies so that children can be part of an environment where they can experience love and trust and learn how to deal well with other people.<br><br>
+                Following these principles, we give as much autonomy as possible to regional direction, country direction, and project direction. We offer guidance and advice at each level as needed or requested and accountability at the ground level. The Board of Directors is asked to provide strategic direction and give advice and judgment on the effectiveness of program implementation. Country Directors are responsible for program development in their countries and are accountable for success. Project Managers and Program Directors are responsible for their projects and programs and are accountable for their success. Through a system of reporting procedures all responsible persons are accountable for the fiscal health of the areas of their responsibility.
+              </div>
+            </div>
+          </div>
+
+          <!-- item 21 -->
+          <div class="accordion-item">
+            <div class="accordion-title" data-target="content21">
+              <span>Help Where We Can</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content" id="content21">
+              <div class="accordion-content-inner">
+                We cannot solve all the problems or help everyone. We are like the child on the seashore trying to save as many starfish as we can. We commit to maximize our effectiveness and behind-the-scenes influence to help others into a position where they, too, can save a few more starfish. There are mutual benefits to service. The Giver and the Receiver both receive benefits and blessings. "There is an interdependence between those who have and those who have not. The process of giving exalts the poor and humbles the rich. In the process, both are sanctified." (Marion G. Romney)
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- end accordion-wrapper -->
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-wrap">
+    <div class="container">
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="copy">
+        &copy; <a href="#">RUWEPO</a>. All rights reserved.
+      </div>
+    </div>
+  </footer>
